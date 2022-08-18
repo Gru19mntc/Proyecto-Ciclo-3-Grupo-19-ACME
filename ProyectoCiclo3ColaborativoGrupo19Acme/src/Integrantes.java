@@ -9,7 +9,7 @@ public class Integrantes {
     //                                                                     organizacion.
     //Desarrollo del Sprint #1 para el ciclo 3 de mision TIC 2022
     //1. el equipo esta conformado por las siguientes 5 personas:
-    //1.1
+    //1.1 Juan Simon Cardona Fernandez - GitHub user: "Juansis99"
     //1.2
     //1.3
     //1.4
