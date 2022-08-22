@@ -1,2 +1,5 @@
-package entities;public class Empresa {
+package entities;
+
+public class Empresa {
+    //Creacion de la Clase Empresa
 }
