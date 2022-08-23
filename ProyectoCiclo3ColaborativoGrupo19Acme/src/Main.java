@@ -4,10 +4,15 @@ import entities.MovimientoDinero;
 public class Main {
     public static void main (String[] args) {
         //Espacio para verificacion del funcionamiento de la clase Empresa
+        System.out.println("Validacion de la clase \"Empresa\":");
 
 
 
+
+
+        System.out.println("------------------------------------------------------------------");
         //Espacio para verificacion del funcionamiento de la clase Empleado
+        System.out.println("Validacion de la clase \"Empleado\":");
         /*Constantes*/
         String Empresa= String.valueOf("pyptec");
         String Nombre= String.valueOf("Jaime");
@@ -28,9 +33,16 @@ public class Main {
         System.out.println(nEmpleado.getCorreoEmpleado());
         System.out.println(nEmpleado.getIdEmpleado());
         System.out.println(nEmpleado.getRolEmpleado());
-
-
+        /*Validacion empleado por contructor con argumentos */
+        Empleado nEmpleado2 = new Empleado(123,"Andres","andy123@gmail.com","Coomeva","Administrador");
+        System.out.println(nEmpleado2.getIdEmpleado());
+        System.out.println(nEmpleado2.getNombrEmpleado());
+        System.out.println(nEmpleado2.getCorreoEmpleado());
+        System.out.println(nEmpleado2.getEmpresaEmpleado());
+        System.out.println(nEmpleado2.getRolEmpleado());
+        System.out.println("------------------------------------------------------------------");
         //Espacio para verificacion del funcionamiento de la clase MovimientoDinero
+        System.out.println("Validacion de la clase \"MovimientoDinero\":");
         MovimientoDinero ingreso1 = new MovimientoDinero();
         System.out.println(ingreso1.getUsuario()); //verificacion de Constructor vacio
         ingreso1.setUsuario("Pepito"); //Verificacion del setter para usuario
@@ -39,13 +51,12 @@ public class Main {
         System.out.println(ingreso1.getConcepto()); //Verificacion de Getter para concepto
         ingreso1.setMonto(5000); //Verificacion de Setter para el monto
         System.out.println(ingreso1.getMonto()); //Verificacion de Getter para monto
-        MovimientoDinero ingreso2 = new MovimientoDinero(new Empleado(),-7000,"Compra de insumos"); /*
+        MovimientoDinero egreso1 = new MovimientoDinero(new Empleado(),-7000,"Compra de insumos"); /*
         Verificacion del constructor con argumentos*/
-        System.out.println(ingreso2.getMonto()); //Verificacion del monto negativo
-
-
-
-
-
+        System.out.println(egreso1.getMonto()); //Verificacion del monto negativo
+        MovimientoDinero egreso2 = new MovimientoDinero(nEmpleado,-70800,"Compra de repuestos"); /*
+        Verificacion del constructor con argumentos con un empleado ya creado*/
+        System.out.println(egreso2.getUsuario()); //Verificacion del usuario con empleado ya creado.
+        System.out.println("------------------------------------------------------------------");
     }
 }
