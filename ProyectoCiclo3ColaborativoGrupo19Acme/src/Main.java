@@ -8,7 +8,26 @@ public class Main {
 
 
         //Espacio para verificacion del funcionamiento de la clase Empleado
-
+        /*Constantes*/
+        String Empresa= String.valueOf("pyptec");
+        String Nombre= String.valueOf("Jaime");
+        String Correo= String.valueOf("pyptec@hotmail.com");
+        int Id=123456789;
+        String Cargo= String.valueOf("Ingeniero");
+        /*instancia de la clase*/
+        Empleado nEmpleado = new Empleado();
+        /*Ingreso de datos*/
+        nEmpleado.setEmpresaEmpleado(Empresa);
+        nEmpleado.setNombrEmpleado(Nombre);
+        nEmpleado.setCorreoEmpleado(Correo);
+        nEmpleado.setIdEmpleado(Id);
+        nEmpleado.setRolEmpleado(Cargo);
+        /*Se muestra los datos grabados por get*/
+        System.out.println(nEmpleado.getEmpresaEmpleado());
+        System.out.println(nEmpleado.getNombrEmpleado());
+        System.out.println(nEmpleado.getCorreoEmpleado());
+        System.out.println(nEmpleado.getIdEmpleado());
+        System.out.println(nEmpleado.getRolEmpleado());
 
 
         //Espacio para verificacion del funcionamiento de la clase MovimientoDinero
@@ -23,6 +42,10 @@ public class Main {
         MovimientoDinero ingreso2 = new MovimientoDinero(new Empleado(),-7000,"Compra de insumos"); /*
         Verificacion del constructor con argumentos*/
         System.out.println(ingreso2.getMonto()); //Verificacion del monto negativo
+
+
+
+
 
     }
 }

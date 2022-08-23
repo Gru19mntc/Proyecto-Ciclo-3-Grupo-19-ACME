@@ -12,7 +12,7 @@ public class Integrantes {
     //1.1 Juan Simon Cardona Fernandez - GitHub user: "Juansis99"
     //1.2 Juan Carlos Larrota - GitHun User: "Juankld3"
     //1.3 Hernan Dario Guevara  - GitHun User: "hdguevara"
-    //1.4
+    //1.4Jaime Pedraza          - Github User: "pyptec"
     //1.5
     //
     //2. Se crea una organizacion en Github
