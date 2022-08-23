@@ -18,6 +18,8 @@ public class Empleado {
     }
 
     public Empleado() {
+        //Se añade la inicializacion para verificar el funcionamiento de la clase "MovimientoDinero"
+        this.nombrEmpleado = "GenericoPruebas";
     }
 
     public int getIdEmpleado() {
