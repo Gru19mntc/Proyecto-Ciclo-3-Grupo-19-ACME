@@ -1,10 +1,19 @@
 import entities.Empleado;
+import entities.Empresa;
 import entities.MovimientoDinero;
 
 public class Main {
     public static void main (String[] args) {
         //Espacio para verificacion del funcionamiento de la clase Empresa
         System.out.println("Validacion de la clase \"Empresa\":");
+        String Empresano="dormiluna";
+
+        Empresa enp1=new Empresa(Empresano,"calle34", 30023456,1011324);
+        System.out.println(enp1.getName());
+
+        enp1.setName("Ara");
+        System.out.println(enp1.getName());
+
 
 
 
