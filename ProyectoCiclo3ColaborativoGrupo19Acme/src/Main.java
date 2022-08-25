@@ -14,6 +14,16 @@ public class Main {
         enp1.setName("Ara");
         System.out.println(enp1.getName());
 
+        enp1.setAdress("numero49");
+        System.out.println(enp1.getAdress());
+
+        enp1.setTelf(30045623);
+        System.out.println(enp1.getTelf());
+
+        enp1.setNit("1234526");
+        System.out.println(enp1.getNit());
+
+
 
 
 
