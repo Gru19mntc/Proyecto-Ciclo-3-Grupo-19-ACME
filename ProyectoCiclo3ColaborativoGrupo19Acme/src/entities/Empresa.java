@@ -13,6 +13,10 @@ public class Empresa {
         this.telf = telf;
         this.nit = nit;
     }
+
+    public Empresa(){
+        this.name = "Empresa Generica";
+    }
     //Métodos Getters y Setter, los getter obtienen los datos de la propiedad, los setter cambian los valores
     public String getName() {
         return name;

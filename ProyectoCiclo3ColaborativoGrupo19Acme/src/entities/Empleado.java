@@ -5,16 +5,15 @@ public class Empleado {
     private int idEmpleado;
     private String nombrEmpleado;
     private String correoEmpleado;
-    private String empresaEmpleado;
+    private Empresa empresaEmpleado;
     private String rolEmpleado;
 
-    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, String empresaEmpleado, String rolEmpleado) {
+    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rolEmpleado) {
         this.idEmpleado = idEmpleado;
         this.nombrEmpleado = nombrEmpleado;
         this.correoEmpleado = correoEmpleado;
         this.empresaEmpleado = empresaEmpleado;
         this.rolEmpleado = rolEmpleado;
-
     }
 
     public Empleado() {
@@ -22,6 +21,12 @@ public class Empleado {
         this.nombrEmpleado = "GenericoPruebas";
     }
 
+    //Metodos
+    public String empresaEmpleado(){
+        return this.empresaEmpleado.getName();
+    }
+
+    //Setters y Getters
     public int getIdEmpleado() {
         return idEmpleado;
     }
@@ -46,11 +51,11 @@ public class Empleado {
         this.correoEmpleado = correoEmpleado;
     }
 
-    public String getEmpresaEmpleado() {
+    public Empresa getEmpresaEmpleado() {
         return empresaEmpleado;
     }
 
-    public void setEmpresaEmpleado(String empresaEmpleado) {
+    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
         this.empresaEmpleado = empresaEmpleado;
     }
 

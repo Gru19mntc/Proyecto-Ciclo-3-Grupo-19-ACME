@@ -5,18 +5,23 @@ public class MovimientoDinero {
     //Atributos
     private double monto;
     private String concepto;
-    private String usuario;
+    private Empleado usuario;
     Empleado empleado = new Empleado();
 
-    //Constructor
+    //Constructores
     public MovimientoDinero(Empleado empleado, double monto, String concepto){
-        this.usuario = empleado.getNombrEmpleado();
+        this.usuario = empleado;
         this.monto = monto;
         this.concepto = concepto;
     }
 
     public MovimientoDinero(){
-        this.usuario = empleado.getNombrEmpleado();
+        this.usuario = empleado;
+    }
+
+    //Metodos
+    public String usuarioMovimientoDinero(){
+        return this.usuario.getNombrEmpleado();
     }
 
     //Getters y Setters
@@ -36,11 +41,11 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public String getUsuario() {
+    public Empleado getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Empleado empleado) {
+        this.usuario = empleado;
     }
 }
