@@ -12,8 +12,8 @@ public class Integrantes {
     //1.1 Juan Simon Cardona Fernandez - GitHub user: "Juansis99"
     //1.2 Juan Carlos Larrota - GitHun User: "Juankld3"
     //1.3 Hernan Dario Guevara  - GitHun User: "hdguevara"
-    //1.4Jaime Pedraza          - Github User: "pyptec"
-    //1.5 Jasbleidy Alarcon Riaño - Github User jasbleidy90
+    //1.4 Jaime Pedraza - Github User: "pyptec"
+    //1.5 Jasbleidy Alarcon Riaño - Github User: "jasbleidy90"
     //
     //2. Se crea una organizacion en Github
     //2.1 La organizacion creada en Github (Usuario) es "Gru19mntc"
