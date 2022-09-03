@@ -1,5 +1,7 @@
 package entities;
 
+import ProyectoCiclo3ColaborativoGrupo19Acme.src.entities.Empresa;
+
 public class Empleado {
     //Creacion de la Clase Empleado
     private int idEmpleado;
