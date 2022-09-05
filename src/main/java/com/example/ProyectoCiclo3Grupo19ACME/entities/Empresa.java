@@ -1,10 +1,27 @@
 package com.example.ProyectoCiclo3Grupo19ACME.entities;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "empresa")
 public class Empresa {
-    private String name;
-    private String adress;
-    private int telf;
+    @Id
     private int nit;
+    @Column(nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private String adress;
+    @Column(nullable = false)
+    private int telf;
+
+//    @OneToMany(mappedBy = "empresa")
+//    private List<Empleado> empleadoList = new ArrayList<>();
+
+//    @OneToMany(mappedBy = "empresa")
+//    private List<MovimientoDinero> empresaList = new ArrayList<>();
+
     //Constructor de la claseEmpresa
     public Empresa(String name, String adress, int telf, int nit) {
         this.name = name;
@@ -14,7 +31,7 @@ public class Empresa {
     }
 
     public Empresa(){
-        this.name = "Empresa Generica";
+//        this.name = "Empresa Generica";
     }
     //Métodos Getters y Setter, los getter obtienen los datos de la propiedad, los setter cambian los valores
     public String getName() {
@@ -41,4 +58,20 @@ public class Empresa {
     public void setNit(int nit) {
         this.nit = nit;
     }
+
+//    public List<MovimientoDinero> getEmpresaList() {
+//        return empresaList;
+//    }
+//
+//    public void setEmpresaList(List<MovimientoDinero> empresaList) {
+//        this.empresaList = empresaList;
+//    }
+//
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 }

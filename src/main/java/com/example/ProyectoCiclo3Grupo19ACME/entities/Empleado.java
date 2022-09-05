@@ -1,30 +1,46 @@
 package com.example.ProyectoCiclo3Grupo19ACME.entities;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table
 public class Empleado {
     //Creacion de la Clase Empleado
+    @Id
     private int idEmpleado;
+    @Column(nullable = false)
     private String nombrEmpleado;
+    @Column(nullable = false)
     private String correoEmpleado;
-    private Empresa empresaEmpleado;
+//    private Empresa empresaEmpleado;
+    @Column(nullable = false)
     private String rolEmpleado;
 
-    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, Empresa empresaEmpleado, String rolEmpleado) {
+    @ManyToOne
+    @JoinColumn(name = "emp_nit_empresa",nullable = false,referencedColumnName = "nit")
+    private Empresa empresa;
+
+//    @OneToMany(mappedBy = "empleado")
+//    List<MovimientoDinero> movimientoDineroList;
+
+    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, /*Empresa empresaEmpleado,*/ String rolEmpleado) {
         this.idEmpleado = idEmpleado;
         this.nombrEmpleado = nombrEmpleado;
         this.correoEmpleado = correoEmpleado;
-        this.empresaEmpleado = empresaEmpleado;
+//        this.empresaEmpleado = empresaEmpleado;
         this.rolEmpleado = rolEmpleado;
     }
 
     public Empleado() {
         //Se añade la inicializacion para verificar el funcionamiento de la clase "MovimientoDinero"
-        this.nombrEmpleado = "GenericoPruebas";
+//        this.nombrEmpleado = "GenericoPruebas";
     }
 
     //Metodos
-    public String empresaEmpleado(){
-        return this.empresaEmpleado.getName();
-    }
+//    public String empresaEmpleado(){
+//        return this.empresaEmpleado.getName();
+//    }
 
     //Setters y Getters
     public int getIdEmpleado() {
@@ -51,13 +67,13 @@ public class Empleado {
         this.correoEmpleado = correoEmpleado;
     }
 
-    public Empresa getEmpresaEmpleado() {
-        return empresaEmpleado;
-    }
-
-    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
-        this.empresaEmpleado = empresaEmpleado;
-    }
+//    public Empresa getEmpresaEmpleado() {
+//        return empresaEmpleado;
+//    }
+//
+//    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
+//        this.empresaEmpleado = empresaEmpleado;
+//    }
 
     public String getRolEmpleado() {
         return rolEmpleado;
@@ -66,4 +82,20 @@ public class Empleado {
     public void setRolEmpleado(String rolEmpleado) {
         this.rolEmpleado = rolEmpleado;
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+//    public List<MovimientoDinero> getMovimientoDineroList() {
+//        return movimientoDineroList;
+//    }
+//
+//    public void setMovimientoDineroList(List<MovimientoDinero> movimientoDineroList) {
+//        this.movimientoDineroList = movimientoDineroList;
+//    }
 }
