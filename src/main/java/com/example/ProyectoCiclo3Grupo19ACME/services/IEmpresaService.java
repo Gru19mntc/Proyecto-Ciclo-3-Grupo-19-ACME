@@ -10,5 +10,8 @@ public interface IEmpresaService {
     public Empresa createEmpresa(Empresa empresa);
     public Empresa getEmpresaById(int nit);
     public Empresa updateEmpresaById(Integer nit, Map<Object, Object> objectMap);
+
+    Empresa updateEmpresaById(int nit, Map<Object, Object> objectMap);
+
     public void deleteEmpresaById(Integer nit);
 }

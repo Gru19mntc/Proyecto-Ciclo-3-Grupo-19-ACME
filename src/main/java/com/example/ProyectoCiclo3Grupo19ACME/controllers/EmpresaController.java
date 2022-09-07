@@ -20,7 +20,7 @@ public class EmpresaController {
         return this.empresaService.createEmpresa(empresa);
     }
     @GetMapping("/enterprises/{id}")
-    public Empresa getEmpresaById(@PathVariable("id") Integer nit){
+    public Empresa getEmpresaById(@PathVariable("id") int nit){
         return this.empresaService.getEmpresaById(nit);
     }
     @PatchMapping("/enterprises/{id}")
