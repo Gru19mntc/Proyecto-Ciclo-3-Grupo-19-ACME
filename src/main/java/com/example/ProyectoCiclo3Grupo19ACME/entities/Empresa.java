@@ -4,36 +4,36 @@ import javax.persistence.*;
 @Table(name = "empresa")
 public class Empresa {
     //ATRIBUTOS
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private  long id;
-    @Column(name = "nombre") private String nombre;
-    @Column(name = "dir")  private String dir;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "nit") private int nit;
+    @Column(name = "name") private String name;
+    @Column(name = "adress")  private String adress;
     @Column(name = "telf") private int telf;
-    @Column(name = "nit") private int nit;
+
     //OBJETO PARA IR A LA DEPENDENCIA DE EMPLEADO
     @Transient
     Empleado empleado1;
     public Empresa() {
     }
     //CONSTRUCTORES
-    public Empresa(String nombre, String dir, int telf, int nit, Empleado empleado1) {
-        this.nombre = nombre;
-        this.dir = dir;
+    public Empresa(String name, String adress, int telf, int nit, Empleado empleado1) {
+        this.name = name;
+        this.adress = adress;
         this.telf = telf;
         this.nit = nit;
         this.empleado1 = empleado1;
     }
     //GETTERS & SETTERS
-    public String getNombre() {
-        return nombre;
+    public String getname() {
+        return name;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setname(String name) {
+        this.name = name;
     }
-    public String getDir() {
-        return dir;
+    public String getadress() {
+        return adress;
     }
-    public void setDir(String dir) {
-        this.dir = dir;
+    public void setadress(String adress) {
+        this.adress = adress;
     }
     public int getTelf() {
         return telf;
@@ -58,8 +58,8 @@ public class Empresa {
     @Override
     public String toString() {
         return "Empresa{" +
-                "nombre='" + nombre + '\'' +
-                ", dir='" + dir + '\'' +
+                "name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
                 ", telf=" + telf +
                 ", nit=" + nit +
                 ", empleado1=" + this.empleado1 +
