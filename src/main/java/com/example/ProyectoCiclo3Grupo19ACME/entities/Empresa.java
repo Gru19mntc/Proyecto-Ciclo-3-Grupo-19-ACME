@@ -1,50 +1,39 @@
 package com.example.ProyectoCiclo3Grupo19ACME.entities;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "empresa")
 public class Empresa {
-    @Id
-    private int nit;
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private String adress;
-    @Column(nullable = false)
-    private int telf;
-
-//    @OneToMany(mappedBy = "empresa")
-//    private List<Empleado> empleadoList = new ArrayList<>();
-
-//    @OneToMany(mappedBy = "empresa")
-//    private List<MovimientoDinero> empresaList = new ArrayList<>();
-
-    //Constructor de la claseEmpresa
-    public Empresa(String name, String adress, int telf, int nit) {
-        this.name = name;
-        this.adress = adress;
+    //ATRIBUTOS
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) private  long id;
+    @Column(name = "nombre") private String nombre;
+    @Column(name = "dir")  private String dir;
+    @Column(name = "telf") private int telf;
+    @Column(name = "nit") private int nit;
+    //OBJETO PARA IR A LA DEPENDENCIA DE EMPLEADO
+    @Transient
+    Empleado empleado1;
+    public Empresa() {
+    }
+    //CONSTRUCTORES
+    public Empresa(String nombre, String dir, int telf, int nit, Empleado empleado1) {
+        this.nombre = nombre;
+        this.dir = dir;
         this.telf = telf;
         this.nit = nit;
+        this.empleado1 = empleado1;
     }
-
-    public Empresa(){
-//        this.name = "Empresa Generica";
+    //GETTERS & SETTERS
+    public String getNombre() {
+        return nombre;
     }
-    //Métodos Getters y Setter, los getter obtienen los datos de la propiedad, los setter cambian los valores
-    public String getName() {
-        return name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setName(String name) {
-        this.name = name;
+    public String getDir() {
+        return dir;
     }
-    public String getAdress() {
-        return adress;
-    }
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setDir(String dir) {
+        this.dir = dir;
     }
     public int getTelf() {
         return telf;
@@ -58,20 +47,22 @@ public class Empresa {
     public void setNit(int nit) {
         this.nit = nit;
     }
+    public Empleado getEmpleado1() {
+        return empleado1;
+    }
+    public void setEmpleado1(Empleado empleado1) {
+        this.empleado1 = empleado1;
+    }
+    //MÉTODO PARA HACER PRUEBAS
 
-//    public List<MovimientoDinero> getEmpresaList() {
-//        return empresaList;
-//    }
-//
-//    public void setEmpresaList(List<MovimientoDinero> empresaList) {
-//        this.empresaList = empresaList;
-//    }
-//
-//    public List<Empleado> getEmpleadoList() {
-//        return empleadoList;
-//    }
-//
-//    public void setEmpleadoList(List<Empleado> empleadoList) {
-//        this.empleadoList = empleadoList;
-//    }
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "nombre='" + nombre + '\'' +
+                ", dir='" + dir + '\'' +
+                ", telf=" + telf +
+                ", nit=" + nit +
+                ", empleado1=" + this.empleado1 +
+                '}';
+    }
 }
