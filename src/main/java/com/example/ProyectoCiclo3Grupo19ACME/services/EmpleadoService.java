@@ -1,7 +1,6 @@
 package com.example.ProyectoCiclo3Grupo19ACME.services;
 
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empleado;
-import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
 import com.example.ProyectoCiclo3Grupo19ACME.repositories.EmpleadoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class EmpleadoService implements IEmpleadoService {
+public class EmpleadoService implements EmpleadoServiceInterface {
     private EmpleadoRepository empleadoRepository;
 
     public EmpleadoService(EmpleadoRepository empleadoRepository){

@@ -1,11 +1,10 @@
 package com.example.ProyectoCiclo3Grupo19ACME.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "movimiento_dinero")
-public class MovimientoDinero /*implements Serializable*/ {
+public class MovimientoDinero {
     //Creacion de la clase MovimientoDinero
     //Atributos
     @Id
@@ -15,19 +14,15 @@ public class MovimientoDinero /*implements Serializable*/ {
     private double monto;
     @Column(name = "concepto", nullable = false)
     private String concepto;
-//    @Column(name = "Usuario", nullable = false)
-//    private Empleado usuario;
-//    Empleado empleado = new Empleado();
     @ManyToOne
-    @JoinColumn(name = "nit_empresa", nullable = false)
+    @JoinColumn(name = "nit_empresa", nullable = false, referencedColumnName = "nit")
     private Empresa empresa;
     @ManyToOne
-    @JoinColumn(name = "id_empleado",nullable = false)
+    @JoinColumn(name = "id_empleado",nullable = false, referencedColumnName = "idEmpleado")
     private Empleado empleado;
 
     //Constructores
-    public MovimientoDinero(/*Empleado empleado,*/ double monto, String concepto){
-//        this.usuario = empleado;
+    public MovimientoDinero(double monto, String concepto){
         this.monto = monto;
         this.concepto = concepto;
     }
@@ -35,11 +30,6 @@ public class MovimientoDinero /*implements Serializable*/ {
     public MovimientoDinero(){
 //        this.usuario = empleado;
     }
-
-    //Metodos
-//    public String usuarioMovimientoDinero(){
-//        return this.usuario.getNombrEmpleado();
-//    }
 
     //Getters y Setters
     public long getId(){
@@ -65,14 +55,6 @@ public class MovimientoDinero /*implements Serializable*/ {
     public void setConcepto(String concepto) {
         this.concepto = concepto;
     }
-
-//    public Empleado getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(Empleado empleado) {
-//        this.usuario = empleado;
-//    }
 
     public Empresa getEmpresa() {
         return empresa;

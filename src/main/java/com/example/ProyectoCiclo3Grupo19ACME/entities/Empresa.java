@@ -1,6 +1,8 @@
 package com.example.ProyectoCiclo3Grupo19ACME.entities;
+
 import lombok.*;
 import javax.persistence.*;
+
 @Entity
 @Data//AUTOMATICO SETTER & GETTERS
 @AllArgsConstructor//CONSTRUCTOR AUTOMÁTICO
@@ -8,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "empresa")//NOMBRE DE LA TABLA PARA ESTA ENTIDAD
 public class Empresa {
     //ATRIBUTOS
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "nit", nullable = false) private int nit;
+    @Id /*@GeneratedValue(strategy = GenerationType.AUTO)*/ @Column(name = "nit", nullable = false) private int nit;
     @Column(name = "name", nullable = false) private String name;
     @Column(name = "adress", nullable = false)  private String adress;
     @Column(name = "telf", nullable = false) private int telf;

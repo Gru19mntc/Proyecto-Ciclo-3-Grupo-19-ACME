@@ -14,29 +14,25 @@ public class Empleado {
     @Column(nullable = false)
     private String correoEmpleado;
     @Column(nullable = false)
-    private String rolEmpleado;
+    @Enumerated(value = EnumType.STRING)
+    private EmpleadoRol rolEmpleado;
     @ManyToOne
     @JoinColumn(name = "emp_nit_empresa",nullable = false,referencedColumnName = "nit")
     private Empresa empresa;
 
+    @OneToMany(mappedBy = "empleado")
+    private List<MovimientoDinero> movimientoDineroList;
+
     //Constructores
-    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, /*Empresa empresaEmpleado,*/ String rolEmpleado) {
+    public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, EmpleadoRol rolEmpleado) {
         this.idEmpleado = idEmpleado;
         this.nombrEmpleado = nombrEmpleado;
         this.correoEmpleado = correoEmpleado;
-//        this.empresaEmpleado = empresaEmpleado;
         this.rolEmpleado = rolEmpleado;
     }
 
     public Empleado() {
-        //Se añade la inicializacion para verificar el funcionamiento de la clase "MovimientoDinero"
-//        this.nombrEmpleado = "GenericoPruebas";
     }
-
-    //Metodos
-//    public String empresaEmpleado(){
-//        return this.empresaEmpleado.getName();
-//    }
 
     //Setters y Getters
     public int getIdEmpleado() {
@@ -63,11 +59,11 @@ public class Empleado {
         this.correoEmpleado = correoEmpleado;
     }
 
-    public String getRolEmpleado() {
+    public EmpleadoRol getRolEmpleado() {
         return rolEmpleado;
     }
 
-    public void setRolEmpleado(String rolEmpleado) {
+    public void setRolEmpleado(EmpleadoRol rolEmpleado) {
         this.rolEmpleado = rolEmpleado;
     }
 

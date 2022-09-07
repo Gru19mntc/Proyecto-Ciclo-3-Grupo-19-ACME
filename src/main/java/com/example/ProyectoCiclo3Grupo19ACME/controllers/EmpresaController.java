@@ -1,7 +1,9 @@
 package com.example.ProyectoCiclo3Grupo19ACME.controllers;
+
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -20,7 +22,7 @@ public class EmpresaController {
         return this.empresaService.createEmpresa(empresa);
     }
     @GetMapping("/enterprises/{id}")
-    public Empresa getEmpresaById(@PathVariable("id") int nit){
+    public Empresa getEmpresaById(@PathVariable("id") Integer nit){
         return this.empresaService.getEmpresaById(nit);
     }
     @PatchMapping("/enterprises/{id}")

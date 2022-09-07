@@ -29,13 +29,13 @@ public class MovimientoDineroController {
         return this.movimientoDineroService.createMovimientoDinero(movimientoDinero);
     }
 
-    @PatchMapping("/MovimientoDinero")
-    public MovimientoDinero updateMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
-        return this.movimientoDineroService.updateMovimientoDinero(movimientoDinero);
-    }
-
-    @DeleteMapping("/MovimientoDinero")
-    public void deleteMovimientoCliente(@RequestBody MovimientoDinero movimientoDinero){
-        movimientoDineroService.deleteMovimientoDinero(movimientoDinero.getId());
-    }
+//    @PatchMapping("/MovimientoDinero")
+//    public MovimientoDinero updateMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
+//        return this.movimientoDineroService.updateMovimientoDinero(movimientoDinero);
+//    }
+//
+//    @DeleteMapping("/MovimientoDinero")
+//    public void deleteMovimientoCliente(@RequestBody MovimientoDinero movimientoDinero){
+//        movimientoDineroService.deleteMovimientoDinero(movimientoDinero.getId());
+//    }
 }

@@ -2,7 +2,6 @@ package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empleado;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpleadoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +9,7 @@ import java.util.Map;
 
 @RestController
 public class EmpleadoController {
-//    @Autowired  //esto no se pa que es o si es necesario, ojo borarlo si algo
-    /*private*/ EmpleadoService empleadoService;
+    EmpleadoService empleadoService;
 
     public EmpleadoController(EmpleadoService empleadoService){
         this.empleadoService = empleadoService;
