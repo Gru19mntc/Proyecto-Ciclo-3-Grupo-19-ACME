@@ -13,17 +13,13 @@ public class Empleado {
     private String nombrEmpleado;
     @Column(nullable = false)
     private String correoEmpleado;
-//    private Empresa empresaEmpleado;
     @Column(nullable = false)
     private String rolEmpleado;
-
     @ManyToOne
     @JoinColumn(name = "emp_nit_empresa",nullable = false,referencedColumnName = "nit")
     private Empresa empresa;
 
-//    @OneToMany(mappedBy = "empleado")
-//    List<MovimientoDinero> movimientoDineroList;
-
+    //Constructores
     public Empleado(int idEmpleado, String nombrEmpleado, String correoEmpleado, /*Empresa empresaEmpleado,*/ String rolEmpleado) {
         this.idEmpleado = idEmpleado;
         this.nombrEmpleado = nombrEmpleado;
@@ -67,14 +63,6 @@ public class Empleado {
         this.correoEmpleado = correoEmpleado;
     }
 
-//    public Empresa getEmpresaEmpleado() {
-//        return empresaEmpleado;
-//    }
-//
-//    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
-//        this.empresaEmpleado = empresaEmpleado;
-//    }
-
     public String getRolEmpleado() {
         return rolEmpleado;
     }
@@ -90,12 +78,4 @@ public class Empleado {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
-
-//    public List<MovimientoDinero> getMovimientoDineroList() {
-//        return movimientoDineroList;
-//    }
-//
-//    public void setMovimientoDineroList(List<MovimientoDinero> movimientoDineroList) {
-//        this.movimientoDineroList = movimientoDineroList;
-//    }
 }

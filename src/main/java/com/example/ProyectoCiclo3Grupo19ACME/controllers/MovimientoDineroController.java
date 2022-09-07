@@ -19,6 +19,11 @@ public class MovimientoDineroController {
         return this.movimientoDineroService.getMovimientoDineroList();
     }
 
+    @GetMapping("/enterprises/{id}/movements")
+    public List<MovimientoDinero> getMovimientoDineroByIdEmpresaList(@PathVariable int id){
+        return this.movimientoDineroService.getMovimientoDineroByIdEmpresaList(id);
+    }
+
     @PostMapping("/MovimientoDinero")
     public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
         return this.movimientoDineroService.createMovimientoDinero(movimientoDinero);

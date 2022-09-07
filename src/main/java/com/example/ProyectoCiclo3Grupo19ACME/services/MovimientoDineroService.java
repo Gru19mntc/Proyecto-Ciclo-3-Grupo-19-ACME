@@ -20,8 +20,8 @@ public class MovimientoDineroService {
     public MovimientoDinero createMovimientoDinero(MovimientoDinero newMovimientoDinero){
         return this.movimientoDineroRepository.save(newMovimientoDinero);
     }
-    public MovimientoDinero getMovimientoDineroById(long id){
-        return this.movimientoDineroRepository.findById(id).get();
+    public List<MovimientoDinero> getMovimientoDineroByIdEmpresaList(int nit_empresa){
+        return this.movimientoDineroRepository.getMovimientoDineroByIdEmpresaList(nit_empresa);
     }
     public MovimientoDinero updateMovimientoDinero(MovimientoDinero movimientoDinero){
         return movimientoDineroRepository.save(movimientoDinero);
