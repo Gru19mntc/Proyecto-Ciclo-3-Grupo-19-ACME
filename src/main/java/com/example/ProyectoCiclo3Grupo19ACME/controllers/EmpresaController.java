@@ -2,13 +2,16 @@ package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EmpresaController {
-    EmpresaService empresaService;
+//    @Autowired //esto no se pa que es o si es necesario, ojo borarlo si algo
+    /*private*/ EmpresaService empresaService;
 
     public EmpresaController(EmpresaService empresaService){
         this.empresaService = empresaService;
@@ -30,12 +33,12 @@ public class EmpresaController {
     }
 
     @PatchMapping("/enterprises/{id}")
-    public Empresa updateEmpresaById(/*@PathVariable("id")*/ @RequestBody Empresa empresa){
-        return this.empresaService.updateEmpresa(empresa);
+    public Empresa updateEmpresaById(@PathVariable("id") Integer nit, @RequestBody Map<Object, Object> objectMap){
+        return this.empresaService.updateEmpresaById(nit, objectMap);
     }
 
     @DeleteMapping("/enterprises/{id}")
     public void deleteEmpresaById(@PathVariable("id") Integer nit){
-        empresaService.deleteEmpresa(nit);
+        empresaService.deleteEmpresaById(nit);
     }
 }
