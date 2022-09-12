@@ -71,5 +71,5 @@ public class Integrantes {
     //5.5 El sistema permite eliminar un usuario
     //Desarrollo del Sprint #3 para el ciclo 3 de mision TIC 2022
     //La evidencia del desarrollo del ciclo 3 se puede ver en la siguiente direccion:
-    //"https://www.youtube.com/watch?v=d6yo2yGif5E&ab_channel=juansis99"
+    //"https://www.youtube.com/watch?v=xyserCRc9M4&ab_channel=juansis99"
 }
