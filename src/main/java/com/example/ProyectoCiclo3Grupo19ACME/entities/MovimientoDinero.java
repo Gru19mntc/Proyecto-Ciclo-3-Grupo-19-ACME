@@ -16,10 +16,10 @@ public class MovimientoDinero {
     private String concepto;
     @ManyToOne
     @JoinColumn(name = "nit_empresa", nullable = false, referencedColumnName = "nit")
-    private Empresa empresa;
+    private Empresa empresaMov;
     @ManyToOne
     @JoinColumn(name = "id_empleado",nullable = false, referencedColumnName = "idEmpleado")
-    private Empleado empleado;
+    private Empleado empleadoMov;
 
     //Constructores
     public MovimientoDinero(double monto, String concepto){
@@ -57,18 +57,18 @@ public class MovimientoDinero {
     }
 
     public Empresa getEmpresa() {
-        return empresa;
+        return empresaMov;
     }
 
     public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+        this.empresaMov = empresa;
     }
 
     public Empleado getEmpleado() {
-        return empleado;
+        return empleadoMov;
     }
 
     public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+        this.empleadoMov = empleado;
     }
 }

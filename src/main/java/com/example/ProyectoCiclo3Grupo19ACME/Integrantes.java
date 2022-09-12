@@ -64,10 +64,12 @@ public class Integrantes {
     //4.4 El sistema permite editar una empresa
     //4.5 El sistema permite eliminar una empresa
     //5. Crear servicios para el usuario
-    //4.1 El sistema permite consultar todas los usuarios
-    //4.2 El sistema permite consultar un solo usuario
-    //4.3 El sistema permite crear un usuario
-    //4.4 El sistema permite editar un usuario
-    //4.5 El sistema permite eliminar un usuario
+    //5.1 El sistema permite consultar todas los usuarios
+    //5.2 El sistema permite consultar un solo usuario
+    //5.3 El sistema permite crear un usuario
+    //5.4 El sistema permite editar un usuario
+    //5.5 El sistema permite eliminar un usuario
     //Desarrollo del Sprint #3 para el ciclo 3 de mision TIC 2022
+    //La evidencia del desarrollo del ciclo 3 se puede ver en la siguiente direccion:
+    //"https://www.youtube.com/watch?v=d6yo2yGif5E&ab_channel=juansis99"
 }

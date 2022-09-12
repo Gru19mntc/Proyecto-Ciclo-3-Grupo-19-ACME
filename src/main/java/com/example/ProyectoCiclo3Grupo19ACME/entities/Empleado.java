@@ -18,9 +18,9 @@ public class Empleado {
     private EmpleadoRol rolEmpleado;
     @ManyToOne
     @JoinColumn(name = "emp_nit_empresa",nullable = false,referencedColumnName = "nit")
-    private Empresa empresa;
+    private Empresa empresaEmpl;
 
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany(mappedBy = "empleadoMov")
     private List<MovimientoDinero> movimientoDineroList;
 
     //Constructores
@@ -68,10 +68,10 @@ public class Empleado {
     }
 
     public Empresa getEmpresa() {
-        return empresa;
+        return empresaEmpl;
     }
 
     public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+        this.empresaEmpl = empresa;
     }
 }

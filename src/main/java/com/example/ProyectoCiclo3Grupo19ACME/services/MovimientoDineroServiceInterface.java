@@ -8,4 +8,6 @@ public interface MovimientoDineroServiceInterface {
     List<MovimientoDinero> getMovimientoDineroList();
     MovimientoDinero createMovimientoDinero(MovimientoDinero movimientoDinero);
     List<MovimientoDinero> getMovimientoDineroByIdEmpresaList(int nit_empresa);
+    void deleteMovimientoDineroByIdEmprsa(long id);
+    MovimientoDinero getMovimientoDineroById(long id);
 }

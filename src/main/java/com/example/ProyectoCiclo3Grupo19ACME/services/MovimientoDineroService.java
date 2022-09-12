@@ -25,10 +25,13 @@ public class MovimientoDineroService implements MovimientoDineroServiceInterface
     public List<MovimientoDinero> getMovimientoDineroByIdEmpresaList(int nit_empresa){
         return this.movimientoDineroRepository.getMovimientoDineroByIdEmpresaList(nit_empresa);
     }
-//    public MovimientoDinero updateMovimientoDinero(MovimientoDinero movimientoDinero){
-//        return movimientoDineroRepository.save(movimientoDinero);
-//    }
-//    public void deleteMovimientoDinero(long id){
-//        movimientoDineroRepository.deleteById(id);
-//    }
+    @Override
+    public void deleteMovimientoDineroByIdEmprsa(long id){
+        this.movimientoDineroRepository.deleteById(id);
+    }
+
+    @Override
+    public MovimientoDinero getMovimientoDineroById(long id){
+        return this.movimientoDineroRepository.findById(id).get();
+    }
 }
