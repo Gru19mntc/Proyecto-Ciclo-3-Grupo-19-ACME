@@ -9,12 +9,15 @@ import java.util.Map;
 
 @RestController
 public class EmpleadoController {
+    //Atributos
     EmpleadoService empleadoService;
 
+    //Constructores
     public EmpleadoController(EmpleadoService empleadoService){
         this.empleadoService = empleadoService;
     }
 
+    //Metodos
     @GetMapping("/users")
     public List<Empleado> getListEmpleado(){
         return this.empleadoService.listEmpleado();

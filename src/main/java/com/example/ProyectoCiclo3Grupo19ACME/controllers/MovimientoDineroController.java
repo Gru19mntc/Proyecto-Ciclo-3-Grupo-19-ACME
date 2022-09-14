@@ -12,16 +12,19 @@ import java.util.List;
 
 @RestController
 public class MovimientoDineroController {
+    //Atributos
     MovimientoDineroService movimientoDineroService;
     EmpresaService empresaService;
     EmpleadoService empleadoService;
 
+    //Constructores
     public MovimientoDineroController(MovimientoDineroService movimientoDineroService, EmpresaService empresaService, EmpleadoService empleadoService){
         this.movimientoDineroService = movimientoDineroService;
         this.empleadoService = empleadoService;
         this.empresaService = empresaService;
     }
 
+    //Metodos
     @GetMapping("/MovimientoDinero")
     public List<MovimientoDinero> getMovimientoDineroList(){
         return this.movimientoDineroService.getMovimientoDineroList();

@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 @Table
 public class Empleado {
-    //Creacion de la Clase Empleado
+    //Atributos
     @Id
     private int idEmpleado;
     @Column(nullable = false)
@@ -19,7 +19,6 @@ public class Empleado {
     @ManyToOne
     @JoinColumn(name = "emp_nit_empresa",nullable = false,referencedColumnName = "nit")
     private Empresa empresaEmpl;
-
     @OneToMany(mappedBy = "empleadoMov")
     private List<MovimientoDinero> movimientoDineroList;
 
