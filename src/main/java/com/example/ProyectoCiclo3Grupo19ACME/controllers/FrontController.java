@@ -1,18 +1,30 @@
 package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
+import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
+import com.example.ProyectoCiclo3Grupo19ACME.services.EmpleadoService;
+import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
+import com.example.ProyectoCiclo3Grupo19ACME.services.MovimientoDineroService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class FrontController {
     //Atributos
-
+    EmpleadoService empleadoService;
+    EmpresaService empresaService;
+    MovimientoDineroService movimientoDineroService;
 
     //Constructores
-
+    public FrontController(EmpleadoService empleadoService, EmpresaService empresaService, MovimientoDineroService movimientoDineroService){
+        this.empleadoService = empleadoService;
+        this.empresaService = empresaService;
+        this.movimientoDineroService= movimientoDineroService;
+    }
 
     //Metodos
     @GetMapping("/")
@@ -30,7 +42,9 @@ public class FrontController {
     }
 
     @GetMapping("/home/empresas")
-    public String empresaTabla(){
+    public String empresaTabla(Model model){
+        List<Empresa> empresaList = this.empresaService.listEmpresa();
+        model.addAttribute("empresaList", empresaList);
         return "empresaTabla";
     }
 

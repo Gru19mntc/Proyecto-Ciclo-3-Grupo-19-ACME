@@ -29,78 +29,16 @@
                 <table class="table" border="1">                  
                     <tbody>
                         <tr>
+                            <td><strong>Nit</strong></td>
                             <td><strong>Nombre</strong></td>
                             <td><strong>Dirección</strong></td>
                             <td><strong>Teléfono</strong></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
+                        <tr th:each="empresa:${empresaList}">
+                            <td th:text="${empresa.nit}"></td>
+                            <th th:text="${empresa.name}"></th>
+                            <td th:text="${empresa.adress}"></td>
+                            <td th:text="${empresa.telf}"></td>
                         </tr>
                         <tr>
                     </tbody>
