@@ -49,7 +49,8 @@ public class FrontController {
     }
 
     @GetMapping("/home/empresas/nueva")
-    public String empresa(){
+    public String empresa(Model model){
+        model.addAttribute("empresa", new Empresa());
         return "empresa";
     }
 

@@ -2,7 +2,9 @@ package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Map;
@@ -22,9 +24,15 @@ public class EmpresaController {
         return this.empresaService.listEmpresa();
     }
 
-    @PostMapping("/enterprises")
-    public Empresa createEmpresa(@RequestBody Empresa empresa){
-        return this.empresaService.createEmpresa(empresa);
+//    @PostMapping("/enterprises")
+//    public Empresa createEmpresa(@RequestBody Empresa empresa){
+//        return this.empresaService.createEmpresa(empresa);
+//    }
+    @PostMapping("/home/empresas")
+    public RedirectView createEmpresa(@ModelAttribute Empresa empresa, Model model){
+        model.addAttribute(empresa);
+        this.empresaService.createEmpresa(empresa);
+        return new RedirectView("/home/empresas");
     }
 
     @GetMapping("/enterprises/{id}")
