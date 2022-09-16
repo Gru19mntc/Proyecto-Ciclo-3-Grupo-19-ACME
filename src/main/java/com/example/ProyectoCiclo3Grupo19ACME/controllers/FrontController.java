@@ -23,4 +23,39 @@ public class FrontController {
 //    public String index(){
 //        return "home";
 //    }
+
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @GetMapping("/home/empresas")
+    public String empresaTabla(){
+        return "empresaTabla";
+    }
+
+    @GetMapping("/home/empresas/nueva")
+    public String empresa(){
+        return "empresa";
+    }
+
+    @GetMapping("/home/usuarios")
+    public String usuarioTabla(){
+        return "usuarioTabla";
+    }
+
+    @GetMapping("/home/usuarios/nuevo")
+    public String usuario(){
+        return "usuario";
+    }
+
+    @GetMapping("/home/transaccion")
+    public String movimientoDineroTabla(){
+        return "movimientoDineroTabla";
+    }
+
+    @GetMapping("/home/transaccion/nueva")
+    public String movimientoDinero(){
+        return "movimientoDinero";
+    }
 }
