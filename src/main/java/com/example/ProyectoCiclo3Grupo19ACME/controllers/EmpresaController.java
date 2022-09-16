@@ -45,8 +45,13 @@ public class EmpresaController {
         return this.empresaService.updateEmpresaById(nit, objectMap);
     }
 
-    @DeleteMapping("/enterprises/{id}")
-    public void deleteEmpresaById(@PathVariable("id") Integer nit){
+//    @DeleteMapping("/enterprises/{id}")
+//    public void deleteEmpresaById(@PathVariable("id") Integer nit){
+//        empresaService.deleteEmpresaById(nit);
+//    }
+    @DeleteMapping("/home/empresas/{id}")
+    public RedirectView deleteEmpresaById(@PathVariable("id") Integer nit){
         empresaService.deleteEmpresaById(nit);
+        return new RedirectView("/home/empresas");
     }
 }
