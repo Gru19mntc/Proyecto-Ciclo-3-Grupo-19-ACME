@@ -1,9 +1,11 @@
 package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
+import com.example.ProyectoCiclo3Grupo19ACME.entities.User;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpleadoService;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
 import com.example.ProyectoCiclo3Grupo19ACME.services.MovimientoDineroService;
+import com.example.ProyectoCiclo3Grupo19ACME.services.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -18,17 +20,22 @@ public class FrontController {
     EmpleadoService empleadoService;
     EmpresaService empresaService;
     MovimientoDineroService movimientoDineroService;
+    UserService userService;
 
     //Constructores
-    public FrontController(EmpleadoService empleadoService, EmpresaService empresaService, MovimientoDineroService movimientoDineroService){
+    public FrontController(EmpleadoService empleadoService, EmpresaService empresaService, MovimientoDineroService movimientoDineroService, UserService userService){
         this.empleadoService = empleadoService;
         this.empresaService = empresaService;
         this.movimientoDineroService= movimientoDineroService;
+        this.userService = userService;
     }
 
     //Metodos
     @GetMapping("/")
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
+        if(principal != null){
+            User user = this.userService.getOrCreateUser(principal.getClaims());
+        }
         return "index";
     }
 //    @GetMapping("/")
