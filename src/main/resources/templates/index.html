@@ -16,12 +16,13 @@
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4">Desarrollo del front-end para el proyecto del ciclo 3 de Mision TIC 2022</p>
                 <p class="lead mb-4">Grupo 19-20, equipo Acme</p>
-<!--                <div sec:authorize="!isAuthenticated()" class="mb-3">-->
-<!--                    <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Iniciar sesion</a>-->
-<!--                </div>-->
-<!--                <div sec:authorize="isAuthenticated()" class="mb-3">-->
+                <div sec:authorize="!isAuthenticated()" class="mb-3">
+                    <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Iniciar sesion</a>
+                </div>
+                <div sec:authorize="isAuthenticated()" class="mb-3">
+                    <h3 th:text="'Bienvenido, ' + ${user.getNombre()}" class="mb-3"></h3>
                     <a href="/home" type="button" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>
-<!--                </div>-->
+                </div>
             </div>
         </div>
     </main>

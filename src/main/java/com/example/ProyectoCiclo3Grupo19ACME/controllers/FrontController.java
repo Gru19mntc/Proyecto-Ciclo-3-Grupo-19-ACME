@@ -35,6 +35,7 @@ public class FrontController {
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
         if(principal != null){
             User user = this.userService.getOrCreateUser(principal.getClaims());
+            model.addAttribute("user", user);
         }
         return "index";
     }

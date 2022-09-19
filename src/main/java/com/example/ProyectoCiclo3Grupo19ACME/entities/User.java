@@ -15,15 +15,18 @@ public class User {
     private String image;
     @Column(name = "auth0Id", unique = true)
     private String auth0Id;
+    @Column(name = "nombre")
+    private String nombre;
 
     //Constructores
     public User() {
     }
 
-    public User(String email, String image, String auth0Id) {
+    public User(String email, String image, String auth0Id, String nombre) {
         this.email = email;
         this.image = image;
         this.auth0Id = auth0Id;
+        this.nombre = nombre;
     }
 
     //Metodos
@@ -57,5 +60,13 @@ public class User {
 
     public void setAuth0Id(String auth0Id) {
         this.auth0Id = auth0Id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

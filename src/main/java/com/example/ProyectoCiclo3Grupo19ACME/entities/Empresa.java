@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Empresa {
     //Atributos
     @Id
-    @Column(name = "nit", nullable = false)
+    @Column(name = "nit", nullable = false, unique = true)
     private int nit;
     @Column(name = "name", nullable = false)
     private String name;

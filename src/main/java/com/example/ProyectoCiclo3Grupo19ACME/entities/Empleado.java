@@ -11,7 +11,7 @@ public class Empleado {
     private int idEmpleado;
     @Column(nullable = false)
     private String nombrEmpleado;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String correoEmpleado;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)

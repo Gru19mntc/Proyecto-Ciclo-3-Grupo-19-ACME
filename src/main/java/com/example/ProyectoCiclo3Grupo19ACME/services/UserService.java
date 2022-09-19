@@ -17,16 +17,24 @@ public class UserService implements UserServiceInterface{
     }
 
     //Metodos
-//    public User createUser(User newUser){
-//        return this.userRepository.save(newUser);
-//    }
+    public User createUser(User newUser){
+        return this.userRepository.save(newUser);
+    }
+
+    public User findUserByEmail(String email){
+        return this.userRepository.findByEmail(email);
+    }
 
     public User getOrCreateUser(Map<String, Object> userData){
         String email = (String) userData.get("email");
-        String name = (String) userData.get("nickname");
-        String image = (String) userData.get("picture");
-        String auth0ID = (String) userData.get("sub");
-        User newUser = new User(email=email, image=image, auth0ID=auth0ID);
-        return /*createUser(newUser)*/ this.userRepository.save(newUser);
+        User user = findUserByEmail(email);
+        if(user==null){
+            String nombre = (String) userData.get("nickname");
+            String image = (String) userData.get("picture");
+            String auth0ID = (String) userData.get("sub");
+            User newUser = new User(email, image, auth0ID, nombre);
+            return createUser(newUser);
+        }
+        return user;
     }
 }
