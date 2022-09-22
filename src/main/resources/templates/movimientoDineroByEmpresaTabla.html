@@ -41,6 +41,12 @@
                             <td th:text="${movimiento.empleado.idEmpleado}"></td>
                         </tr>
                         <tr>
+                            <th th:text="${empresa.nit} + ' - ' + ${empresa.name}"></th>
+                            <th th:text="${totalMonto}"></th>
+                            <th>Suma montos</th>
+                            <th>Todos</th>
+                        </tr>
+                        <tr>
                     </tbody>
                 </table>
             </div>

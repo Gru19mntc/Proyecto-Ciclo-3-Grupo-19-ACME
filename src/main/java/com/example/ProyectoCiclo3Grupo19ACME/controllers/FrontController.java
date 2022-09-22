@@ -102,8 +102,13 @@ public class FrontController {
     public String movimientoDineroByEmpresaTabla(@PathVariable("id") int id, Model model){
         List<MovimientoDinero> movimientoDineroByEmpresaList = this.movimientoDineroService.getMovimientoDineroByIdEmpresaList(id);
         Empresa empresa = this.empresaService.getEmpresaById(id);
+        double totalMonto = 0;
+        for(MovimientoDinero movimientoDinero :movimientoDineroByEmpresaList){
+            totalMonto += movimientoDinero.getMonto();
+        }
         model.addAttribute("movimientoByEmpresaList", movimientoDineroByEmpresaList);
         model.addAttribute("empresa", empresa);
+        model.addAttribute("totalMonto", totalMonto);
         return "movimientoDineroByEmpresaTabla";
     }
 
