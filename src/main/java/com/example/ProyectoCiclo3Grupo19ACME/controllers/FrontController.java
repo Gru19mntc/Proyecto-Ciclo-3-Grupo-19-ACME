@@ -98,6 +98,15 @@ public class FrontController {
         return "movimientoDineroTabla";
     }
 
+    @GetMapping("/home/empresas/transacciones/{id}")
+    public String movimientoDineroByEmpresaTabla(@PathVariable("id") int id, Model model){
+        List<MovimientoDinero> movimientoDineroByEmpresaList = this.movimientoDineroService.getMovimientoDineroByIdEmpresaList(id);
+        Empresa empresa = this.empresaService.getEmpresaById(id);
+        model.addAttribute("movimientoByEmpresaList", movimientoDineroByEmpresaList);
+        model.addAttribute("empresa", empresa);
+        return "movimientoDineroByEmpresaTabla";
+    }
+
     @GetMapping("/home/transaccion/nueva")
     public String movimientoDinero(Model model){
         model.addAttribute("movimiento", new MovimientoDinero());

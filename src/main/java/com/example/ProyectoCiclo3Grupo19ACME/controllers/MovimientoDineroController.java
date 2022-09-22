@@ -53,10 +53,6 @@ public class MovimientoDineroController {
 
     @PostMapping("/home/transaccion")
     public RedirectView createMovimientoDinero(@ModelAttribute MovimientoDinero movimientoDinero, Model model){
-//        Empresa empresa = empresaService.getEmpresaById(movimientoDinero.getEmpleado().getEmpresa().getNit());
-//        Empleado empleado = empleadoService.getEmpleadoById(movimientoDinero.getEmpleado().getIdEmpleado());
-//        movimientoDinero.setEmpresa(empresa);
-//        movimientoDinero.setEmpleado(empleado);
         this.movimientoDineroService.createMovimientoDinero(movimientoDinero);
         return new RedirectView("/home/transaccion");
     }
