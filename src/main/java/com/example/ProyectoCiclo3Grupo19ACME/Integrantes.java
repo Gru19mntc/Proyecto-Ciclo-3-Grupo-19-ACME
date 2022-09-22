@@ -16,11 +16,9 @@ public class Integrantes {
     //1.3 Hernan Dario Guevara  - GitHun User: "hdguevara"
     //1.4 Jaime Pedraza - Github User: "pyptec"
     //1.5 Jasbleidy Alarcon Riaño - Github User: "jasbleidy90"
-    //
     //2. Se crea una organizacion en Github
     //2.1 La organizacion creada en Github (Usuario) es "Gru19mntc"
     //2.2 El link para la organizacion del grupo es: "https://github.com/Gru19mntc"
-    //
     //3. Se crea un repositorio de ejemplo dentro de la organizacion
     //3.1 El repositorio dentro de la organizacion se llama: "Proyecto-Ciclo-3-Grupo-19-ACME"
     //    su ruta de acceso es "https://github.com/Gru19mntc/Proyecto-Ciclo-3-Grupo-19-ACME"
@@ -70,6 +68,26 @@ public class Integrantes {
     //5.4 El sistema permite editar un usuario
     //5.5 El sistema permite eliminar un usuario
     //Desarrollo del Sprint #3 para el ciclo 3 de mision TIC 2022
-    //La evidencia del desarrollo del ciclo 3 se puede ver en la siguiente direccion:
+    //La evidencia del desarrollo del sprint 3 se puede ver en la siguiente direccion:
     //"https://www.youtube.com/watch?v=xyserCRc9M4&ab_channel=juansis99"
+    //
+    //
+    //Para el sprint 4 se tienen 7 tareas principales:
+    //1. Crear entidades y repositorios para la empresa
+    //1.1 la informacion de las empresas persiste en una base de datos relacional de PostgreSQL en Supabase
+    //2. Crear entidades y repositorios para los usuarios
+    //2.1 La informacion de los usuarios persiste en una base de datos relacional de PostgreSQL en Supabase
+    //3. Crear entidades y repositorios para los movimientos
+    //3.1 La informacion de los movimietnos persiste en una base de datos relacional de PostgreSQL en Supabase
+    //4. Crear una interfaz para visualizar todos los movimientos de dinero de una emrpesa
+    //4.1 Es posible visualizar una lista de los movimientos de dinero de la empresa y un total de todos los movimientos
+    //5. Crear una interfaz para que un usuario pueda
+    //5.1 Es posible para un usuario agregar un movimiento de dinero.
+    //6. Agregar autenticacion
+    //6.1 El sistema esta progetegido por login.
+    //7. Desplegar la interfaz
+    //7.1 Es posible acceder a la interfaz a travez de internet.
+    //Desarrollo del Sprint #4 para el sprint 3 de mision TIC 2022
+    //La evidencia del desarrollo del sprint 3 se puede ver en la ruta del programa desplegado en linea:
+    //............
 }
