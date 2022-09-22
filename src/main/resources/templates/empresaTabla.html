@@ -33,6 +33,7 @@
                             <td><strong>Nombre</strong></td>
                             <td><strong>Dirección</strong></td>
                             <td><strong>Teléfono</strong></td>
+                            <td><strong>Actualizar</strong></td>
                             <td><strong>Eliminar</strong></td>
                         </tr>
                         <tr th:each="empresa:${empresaList}">
@@ -40,6 +41,11 @@
                             <td th:text="${empresa.name}"></td>
                             <td th:text="${empresa.adress}"></td>
                             <td th:text="${empresa.telf}"></td>
+                            <td>
+                                <form th:action="@{/home/empresas/actualizar/{id}(id=${empresa.nit})}" th:method="get">
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                </form>
+                            </td>
                             <td>
                                 <form th:action="@{/home/empresas/{id}(id=${empresa.nit})}" th:method="delete">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>

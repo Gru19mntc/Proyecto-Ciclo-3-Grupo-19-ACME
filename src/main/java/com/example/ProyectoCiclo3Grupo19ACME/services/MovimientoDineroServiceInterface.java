@@ -11,4 +11,5 @@ public interface MovimientoDineroServiceInterface {
     List<MovimientoDinero> getMovimientoDineroByIdEmpresaList(int nit_empresa);
     void deleteMovimientoDineroByIdEmprsa(long id);
     MovimientoDinero getMovimientoDineroById(long id);
+    void deleteMovimientoDineroById(long id);
 }

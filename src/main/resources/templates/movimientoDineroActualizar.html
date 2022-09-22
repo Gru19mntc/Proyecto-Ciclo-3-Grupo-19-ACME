@@ -7,7 +7,7 @@
     <link rel="icon" href="../static/img/icono.ico">    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/img/styles.css}">
-    <title>Nuevo Usuario</title>        
+    <title>Actualizar Movimiento</title>
 </head>
 <body>
     <main class="container">
@@ -24,21 +24,21 @@
             </div>
             <div class="col-sm-9 d-block w-50 mx-5"  >
                 <p><h4>Sistema de gestión de ingresos y gastos</h4></p>
-                <h5 class="float-end"><u>Usuarios</u></h5><br><br><br><br>
+                <h5 class="float-end"><u>Ingresos & Egresos</u></h5><br><br><br><br>
                 <section class="d-flex flex-wrap justify-content-center align-items-center">
-                    <h3 class="w-100 justify-content-center align.align-items-center"><b>Nuevo Usuario</b></h3>
-                    <form th:action="@{/home/usuarios}" th:method="post" th:object="${empleado}">
-                        <label class="w-100">Id</label>
-                        <input th:field="*{idEmpleado}" type="number" class="w-100" placeholder="Numero de identificación">
-                        <label class="w-100">Nombre</label>
-                        <input th:field="*{nombrEmpleado}" type="text" class="w-100" placeholder="Nombre">
-                        <label class="w-100">Correo</label>
-                        <input th:field="*{correoEmpleado}" type="email" class="w-100" placeholder="Correo electronico">
-                        <label class="w-100">Rol</label>
-                        <input th:field="*{rolEmpleado}" type="text" class="w-100" placeholder="Rol">
+                    <h3 class="w-100 justify-content-center align.align-items-center"><b>Actualizar Movimiento Dinero</b></h3>
+                    <form th:action="@{/home/transaccion}" th:method="post" th:object="${movimiento}">
+                        <label class="w-100">id</label>
+                        <input th:field="*{id}" type="text" class="w-100" placeholder="Id transaccion">
+                        <label class="w-100">Monto</label>
+                        <input th:field="*{monto}" type="text" class="w-100" placeholder="Monto de la transacción">
+                        <label class="w-100">Concepto</label>
+                        <input th:field="*{concepto}" type="text" class="w-100" placeholder="Concepto de la transacción">
                         <label class="w-100">Empresa</label>
-                        <input th:field="*{empresa.nit}" type="number" class="w-100" placeholder="Nit empresa"><br><br>
-                        <button type="submit" class="btn btn-secondary">Agregar Usuario</button>
+                        <input th:field="*{empresa.nit}" type="number" class="w-100" placeholder="Numero de identificacion tributaria de la empresa">
+                        <label class="w-100">Empleado</label>
+                        <input th:field="*{empleado.idEmpleado}" type="number" class="w-100" placeholder="Numero de identificacion del usuario"><br><br>
+                        <button type="submit" class="btn btn-secondary">Actualizar Movimiento</button>
                     </form>
                 </section>
             </div>

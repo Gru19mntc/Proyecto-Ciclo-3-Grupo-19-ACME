@@ -29,78 +29,30 @@
                 <table class="table" border="1">
                     <tbody>
                         <tr>
+                            <td><strong>Id</strong></td>
                             <td><strong>Nombre</strong></td>
                             <td><strong>Correo</strong></td>
-                            <td><strong>Teléfono</strong></td>
+                            <td><strong>Rol</strong></td>
+                            <td><strong>Empresa</strong></td>
+                            <td><strong>Actualizar</strong></td>
+                            <td><strong>Eliminar</strong></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
+                        <tr th:each="empleado:${empleadoList}">
+                            <td th:text="${empleado.idEmpleado}"></td>
+                            <th th:text="${empleado.nombrEmpleado}"></th>
+                            <td th:text="${empleado.correoEmpleado}"></td>
+                            <td th:text="${empleado.rolEmpleado}"></td>
+                            <td th:text="${empleado.empresa.nit}"></td>
+                            <td>
+                                <form th:action="@{/home/usuarios/actualizar/{id}(id=${empleado.idEmpleado})}" th:method="get">
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form th:action="@{/home/usuarios/{id}(id=${empleado.idEmpleado})}" th:method="delete">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                         <tr>
                     </tbody>

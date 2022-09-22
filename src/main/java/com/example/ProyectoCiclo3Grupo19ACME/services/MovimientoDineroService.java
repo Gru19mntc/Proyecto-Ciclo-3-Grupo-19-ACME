@@ -41,4 +41,9 @@ public class MovimientoDineroService implements MovimientoDineroServiceInterface
     public MovimientoDinero getMovimientoDineroById(long id){
         return this.movimientoDineroRepository.findById(id).get();
     }
+
+    @Override
+    public void deleteMovimientoDineroById(long id){
+        this.movimientoDineroRepository.deleteById(id);
+    }
 }

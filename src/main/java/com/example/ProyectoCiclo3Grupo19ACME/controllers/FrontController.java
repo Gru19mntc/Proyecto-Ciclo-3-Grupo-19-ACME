@@ -1,6 +1,8 @@
 package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
+import com.example.ProyectoCiclo3Grupo19ACME.entities.Empleado;
 import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
+import com.example.ProyectoCiclo3Grupo19ACME.entities.MovimientoDinero;
 import com.example.ProyectoCiclo3Grupo19ACME.entities.User;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpleadoService;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
@@ -11,6 +13,7 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -39,6 +42,7 @@ public class FrontController {
         }
         return "index";
     }
+
 //    @GetMapping("/")
 //    public String index(){
 //        return "home";
@@ -62,23 +66,47 @@ public class FrontController {
         return "empresa";
     }
 
+    @GetMapping("/home/empresas/actualizar/{id}")
+    public String empresa(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("empresa", empresaService.getEmpresaById(id));
+        return "empresaActualizar";
+    }
+
     @GetMapping("/home/usuarios")
-    public String usuarioTabla(){
+    public String usuarioTabla(Model model){
+        List<Empleado> empleadoList = this.empleadoService.listEmpleado();
+        model.addAttribute("empleadoList", empleadoList);
         return "usuarioTabla";
     }
 
     @GetMapping("/home/usuarios/nuevo")
-    public String usuario(){
+    public String usuario(Model model){
+        model.addAttribute("empleado", new Empleado());
         return "usuario";
     }
 
+    @GetMapping("/home/usuarios/actualizar/{id}")
+    public String usuario(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
+        return "usuarioActualizar";
+    }
+
     @GetMapping("/home/transaccion")
-    public String movimientoDineroTabla(){
+    public String movimientoDineroTabla(Model model){
+        List<MovimientoDinero> movimientoDineroList = this.movimientoDineroService.getMovimientoDineroList();
+        model.addAttribute("movimientoList", movimientoDineroList);
         return "movimientoDineroTabla";
     }
 
     @GetMapping("/home/transaccion/nueva")
-    public String movimientoDinero(){
+    public String movimientoDinero(Model model){
+        model.addAttribute("movimiento", new MovimientoDinero());
         return "movimientoDinero";
+    }
+
+    @GetMapping("/home/transaccion/actualizar/{id}")
+    public String movimientoDinero(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("movimiento", movimientoDineroService.getMovimientoDineroById(id));
+        return "movimientoDineroActualizar";
     }
 }

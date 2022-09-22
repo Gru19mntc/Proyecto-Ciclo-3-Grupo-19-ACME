@@ -29,79 +29,30 @@
                 <table class="table" border="1">
                     <tbody>
                         <tr>
-                            <td><strong>Concepto</strong></td>
+                            <td><strong>Id</strong></td>
                             <td><strong>Monto</strong></td>
-                            <td><strong>Fecha</strong></td>
-                            <td><strong>Usuario</strong></td>
+                            <td><strong>Concepto</strong></td>
+                            <td><strong>Empresa</strong></td>
+                            <td><strong>Empleado</strong></td>
+                            <td><strong>Actualizar</strong></td>
+                            <td><strong>Eliminar</strong></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td></td>
-                            <th></th>
-                            <td></td>
-                            <td></td>
+                        <tr th:each="movimiento:${movimientoList}">
+                            <td th:text="${movimiento.id}"></td>
+                            <th th:text="${movimiento.monto}"></th>
+                            <td th:text="${movimiento.concepto}"></td>
+                            <td th:text="${movimiento.empresa.nit}"></td>
+                            <td th:text="${movimiento.empleado.idEmpleado}"></td>
+                            <td>
+                                <form th:action="@{/home/transaccion/actualizar/{id}(id=${movimiento.id})}" th:method="get">
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form th:action="@{/home/transaccion/{id}(id=${movimiento.id})}" th:method="delete">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                         <tr>
                     </tbody>

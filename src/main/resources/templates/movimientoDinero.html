@@ -27,13 +27,17 @@
                 <h5 class="float-end"><u>Ingresos & Egresos</u></h5><br><br><br><br>
                 <section class="d-flex flex-wrap justify-content-center align-items-center">
                     <h3 class="w-100 justify-content-center align.align-items-center"><b>Nuevo Movimiento Dinero</b></h3>
-                    <label class="w-100">Monto</label>
-                    <input type="text" class="w-100">
-                    <label class="w-100">Concepto</label>
-                    <input type="text" class="w-100">
-                    <label class="w-100">Fecha</label>
-                    <input type="text" class="w-100"><br><br>
-                    <button type="button" class="btn btn-secondary">Ingresar</button>
+                    <form th:action="@{/home/transaccion}" th:method="post" th:object="${movimiento}">
+                        <label class="w-100">Monto</label>
+                        <input th:field="*{monto}" type="text" class="w-100" placeholder="Monto de la transacción">
+                        <label class="w-100">Concepto</label>
+                        <input th:field="*{concepto}" type="text" class="w-100" placeholder="Concepto de la transacción">
+                        <label class="w-100">Empresa</label>
+                        <input th:field="*{empresa.nit}" type="number" class="w-100" placeholder="Numero de identificacion tributaria de la empresa">
+                        <label class="w-100">Empleado</label>
+                        <input th:field="*{empleado.idEmpleado}" type="number" class="w-100" placeholder="Numero de identificacion del usuario"><br><br>
+                        <button type="submit" class="btn btn-secondary">Agregar Movimiento</button>
+                    </form>
                 </section>
             </div>
         </div>
