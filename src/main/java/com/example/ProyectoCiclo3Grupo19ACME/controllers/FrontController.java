@@ -1,9 +1,6 @@
 package com.example.ProyectoCiclo3Grupo19ACME.controllers;
 
-import com.example.ProyectoCiclo3Grupo19ACME.entities.Empleado;
-import com.example.ProyectoCiclo3Grupo19ACME.entities.Empresa;
-import com.example.ProyectoCiclo3Grupo19ACME.entities.MovimientoDinero;
-import com.example.ProyectoCiclo3Grupo19ACME.entities.User;
+import com.example.ProyectoCiclo3Grupo19ACME.entities.*;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpleadoService;
 import com.example.ProyectoCiclo3Grupo19ACME.services.EmpresaService;
 import com.example.ProyectoCiclo3Grupo19ACME.services.MovimientoDineroService;
@@ -43,13 +40,14 @@ public class FrontController {
         return "index";
     }
 
-//    @GetMapping("/")
-//    public String index(){
-//        return "home";
-//    }
-
     @GetMapping("/home")
-    public String home(){
+    public String home(Model model, @AuthenticationPrincipal OidcUser principal){
+        String emailLogin = principal.getEmail();
+        Empleado empleadoLogin = empleadoService.findEmpleadoByCorreoEmpleado(emailLogin);
+        if(empleadoLogin == null){
+            empleadoLogin = new Empleado(0,principal.getNickName(),emailLogin,EmpleadoRol.Default);
+        }
+        model.addAttribute("empleadoLogin", empleadoLogin);
         return "home";
     }
 

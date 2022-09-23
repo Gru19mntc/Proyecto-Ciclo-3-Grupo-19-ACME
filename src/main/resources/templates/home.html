@@ -22,15 +22,60 @@
             <div class="row">
                 <div class="col-sm-3 d-inline-block border-end">
                     <img src="/img/Acme.png" alt="logo" height="80" class="my-4">
-                    <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
-                    <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                    <a href="/home" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Home</a>
                     <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
+                    <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                    <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
                     <br><br><br><br><br><br><br>
                 </div>
-                <div class="col-sm-9 d-flex justify-content-center align-items-center  gap-3"  >
-                    <textarea id="t1" cols="20" rows="3" readonly> Sistema de gestión de ingresos y gastos</textarea>
-                    <textarea id="t2" cols="20" rows="3" readonly>Sistema de gestión de usuarios</textarea>
-                    <textarea id="t3" cols="20" rows="3" readonly>Sistema de gestión de empresas</textarea>
+                <div class="col-sm-9 d-flex justify-content-center align-items-center  gap-3" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
+                    <div>
+                        <p class="shadow p-3 mb-5 bg-body rounded">Esta seccion es para mostrar la funcionalidad de renderizado condicional de acuerdo al rol
+                            del usuario que ingrese a la aplicacion, solo esta en esta seccion para permitir al evaluador
+                            y publico en general puedan interactuar con la aplicacion</p>
+                        <p class="shadow p-3 mb-5 bg-body rounded">Para esta aplicacion hay 3 usuarios permitidos: Admin, Operario y Default, cada uno de los cuales
+                            tiene una tarjeta unica que mostrara la informacion del usuario logeado</p>
+                        <p class="shadow p-3 mb-5 bg-body rounded">Para verificar que se muestran cada una de las tarjetas segun el usuario, se pueden crear
+                            Empleados nuevos con el usuario propio de inicio de sesion con el rol que se desee validar</p>
+                    </div>
+                    <div>
+                        <div th:case="Admin" class="card" style="width: 18rem;">
+                            <img src="/img/aprobar.png" class="card-img-top" alt="Usuario Admin">
+                            <div class="card-body">
+                                <h5 class="card-title">Usuario Administrador</h5>
+                                <p class="card-text">Este contenido solo se mostrara para el usuario administrador</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" th:text="${empleadoLogin.nombrEmpleado}"></li>
+                                <li class="list-group-item" th:text="${empleadoLogin.correoEmpleado}"></li>
+                                <li class="list-group-item" th:text="${empleadoLogin.empresa.name}"></li>
+                            </ul>
+                        </div>
+                        <div th:case="Operario" class="card" style="width: 18rem;">
+                            <img src="/img/limitado.png" class="card-img-top" alt="Usuario Operario">
+                            <div class="card-body">
+                                <h5 class="card-title">Usuario Operario</h5>
+                                <p class="card-text">Este contenido solo se mostrara para el usuario operario.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" th:text="${empleadoLogin.nombrEmpleado}"></li>
+                                <li class="list-group-item" th:text="${empleadoLogin.correoEmpleado}"></li>
+                                <li class="list-group-item" th:text="${empleadoLogin.empresa.name}"></li>
+                            </ul>
+                        </div>
+                        <div th:case="Default" class="card" style="width: 18rem;">
+                            <img src="/img/denegado.png" class="card-img-top" alt="Usuario Sin permisos">
+                            <div class="card-body">
+                                <h5 class="card-title">Usuario sin permisos</h5>
+                                <p class="card-text">Este contenido solo se mostrara para el usuario sin permisos.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" th:text="${empleadoLogin.nombrEmpleado}"></li>
+                                <li class="list-group-item" th:text="${empleadoLogin.correoEmpleado}"></li>
+                                <li class="list-group-item">Sin Empresa</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

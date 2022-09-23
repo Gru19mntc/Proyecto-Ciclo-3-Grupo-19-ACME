@@ -30,6 +30,10 @@ public class EmpleadoService implements EmpleadoServiceInterface {
         return this.empleadoRepository.findById(idEmpleado).get();
     }
 
+    public Empleado findEmpleadoByCorreoEmpleado(String email){
+        return this.empleadoRepository.findByCorreoEmpleado(email);
+    }
+
     @Override
     public Empleado createEmpleado(Empleado empleado){
         return this.empleadoRepository.save(empleado);
