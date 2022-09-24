@@ -20,9 +20,18 @@
                 <div sec:authorize="!isAuthenticated()" class="mb-3">
                     <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Iniciar sesion</a>
                 </div>
-                <div sec:authorize="isAuthenticated()" class="mb-3">
-                    <h3 th:text="'Bienvenido, ' + ${user.getNombre()}" class="mb-3"></h3>
-                    <a href="/home" type="button" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>
+                <div sec:authorize="isAuthenticated()" class="mb-3" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
+                    <div th:case="Admin">
+                        <h3 th:text="'Bienvenido, ' + ${user.getNombre()}" class="mb-3"></h3>
+                        <a href="/home" type="button" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>
+                    </div>
+                    <div th:case="Operario">
+                        <h3 th:text="'Bienvenido, ' + ${user.getNombre()}" class="mb-3"></h3>
+                        <a href="/home" type="button" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>
+                    </div>
+                    <div th:case="Default">
+                        <h3 th:text="'El usuario ' + ${user.getNombre()} + ' no esta autorizado'" class="mb-3"></h3>
+                    </div>
                 </div>
             </div>
         </div>
