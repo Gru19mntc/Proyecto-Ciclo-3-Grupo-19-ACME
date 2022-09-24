@@ -20,47 +20,81 @@
         </div>
         <div sec:authorize="isAuthenticated()">
             <div class="row">
-                <div class="col-sm-3 d-inline-block border-end">
+                <div class="col-sm-3 d-inline-block border-end" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
                     <img src="/img/Acme.png" alt="logo" height="80" class="my-4">
                     <a href="/home" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Home</a>
-                    <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
-                    <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
-                    <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    <div th:case="Admin">
+                        <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
+                        <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                        <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    </div>
+                    <div th:case="Operario">
+                        <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
+                        <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                        <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    </div>
                     <br><br><br><br><br><br><br>
                 </div>
-                <div class="col-sm-9 d-block">
-                    <a href="/home/transaccion/nueva" type="button" class="btn btn-secondary btn-sm btn-block w-25 my-5 float-end">Nuevo</a>
-                    <table class="table" border="1">
-                        <tbody>
-                        <tr>
-                            <td><strong>Id</strong></td>
-                            <td><strong>Monto</strong></td>
-                            <td><strong>Concepto</strong></td>
-                            <td><strong>Empresa</strong></td>
-                            <td><strong>Empleado</strong></td>
-                            <td><strong>Actualizar</strong></td>
-                            <td><strong>Eliminar</strong></td>
-                        </tr>
-                        <tr th:each="movimiento:${movimientoList}">
-                            <td th:text="${movimiento.id}"></td>
-                            <th th:text="${movimiento.monto}"></th>
-                            <td th:text="${movimiento.concepto}"></td>
-                            <td th:text="${movimiento.empresa.nit}"></td>
-                            <td th:text="${movimiento.empleado.idEmpleado}"></td>
-                            <td>
-                                <form th:action="@{/home/transaccion/actualizar/{id}(id=${movimiento.id})}" th:method="get">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form th:action="@{/home/transaccion/{id}(id=${movimiento.id})}" th:method="delete">
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                        </tbody>
-                    </table>
+                <div class="col-sm-9 d-block" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
+                    <div th:case="Admin">
+                        <a href="/home/transaccion/nueva" type="button" class="btn btn-secondary btn-sm btn-block w-25 my-5 float-end">Nuevo</a>
+                        <table class="table" border="1">
+                            <tbody>
+                            <tr>
+                                <td><strong>Id</strong></td>
+                                <td><strong>Monto</strong></td>
+                                <td><strong>Concepto</strong></td>
+                                <td><strong>Empresa</strong></td>
+                                <td><strong>Empleado</strong></td>
+                                <td><strong>Actualizar</strong></td>
+                                <td><strong>Eliminar</strong></td>
+                            </tr>
+                            <tr th:each="movimiento:${movimientoList}">
+                                <td th:text="${movimiento.id}"></td>
+                                <th th:text="${movimiento.monto}"></th>
+                                <td th:text="${movimiento.concepto}"></td>
+                                <td th:text="${movimiento.empresa.nit}"></td>
+                                <td th:text="${movimiento.empleado.idEmpleado}"></td>
+                                <td>
+                                    <form th:action="@{/home/transaccion/actualizar/{id}(id=${movimiento.id})}" th:method="get">
+                                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form th:action="@{/home/transaccion/{id}(id=${movimiento.id})}" th:method="delete">
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:case="Operario">
+                        <div class="shadow-lg p-3 mb-3 mt-3 bg-body rounded">Usuario tipo operario, permisos para visualizacion y creacion
+                            <a href="/home/transaccion/nueva" type="button" class="btn btn-secondary btn-sm btn-block w-25 mb-5 float-end">Nuevo</a>
+                        </div>
+                        <table class="table" border="1">
+                            <tbody>
+                            <tr>
+                                <td><strong>Id</strong></td>
+                                <td><strong>Monto</strong></td>
+                                <td><strong>Concepto</strong></td>
+                                <td><strong>Empresa</strong></td>
+                                <td><strong>Empleado</strong></td>
+                            </tr>
+                            <tr th:each="movimiento:${movimientoList}">
+                                <td th:text="${movimiento.id}"></td>
+                                <th th:text="${movimiento.monto}"></th>
+                                <td th:text="${movimiento.concepto}"></td>
+                                <td th:text="${movimiento.empresa.nit}"></td>
+                                <td th:text="${movimiento.empleado.idEmpleado}"></td>
+                            </tr>
+                            <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:case="Default" class="shadow-lg p-3 mb-5 mt-3 bg-body rounded">Usuario no Autorizado</div>
                 </div>
             </div>
         </div>

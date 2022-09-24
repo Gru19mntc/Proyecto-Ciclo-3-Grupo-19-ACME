@@ -89,5 +89,5 @@ public class Integrantes {
     //7.1 Es posible acceder a la interfaz a travez de internet.
     //Desarrollo del Sprint #4 para el sprint 3 de mision TIC 2022
     //La evidencia del desarrollo del sprint 3 se puede ver en la ruta del programa desplegado en linea:
-    //............
+    //https://proyecto-ciclo-3-grupo-acme.herokuapp.com
 }

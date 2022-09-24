@@ -20,33 +20,47 @@
         </div>
         <div sec:authorize="isAuthenticated()">
             <div class="row">
-                <div class="col-sm-3 d-inline-block border-end">
+                <div class="col-sm-3 d-inline-block border-end" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
                     <img src="/img/Acme.png" alt="logo" height="80" class="my-4">
                     <a href="/home" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Home</a>
-                    <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
-                    <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
-                    <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    <div th:case="Admin">
+                        <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
+                        <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                        <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    </div>
+                    <div th:case="Operario">
+                        <a href="/home/empresas" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Empresas</a>
+                        <a href="/home/usuarios" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Usuarios</a>
+                        <a href="/home/transaccion" type="button" class="btn btn-secondary btn-lg btn-block w-100 my-3">Ingresos y egresos</a>
+                    </div>
                     <br><br><br><br><br><br><br>
                 </div>
-                <div class="col-sm-9 d-block w-50 mx-5"  >
-                    <p><h4>Sistema de gestión de ingresos y gastos</h4></p>
-                    <h5 class="float-end"><u>Usuarios</u></h5><br><br><br><br>
-                    <section class="d-flex flex-wrap justify-content-center align-items-center">
-                        <h3 class="w-100 justify-content-center align.align-items-center"><b>Actualizar Usuario</b></h3>
-                        <form th:action="@{/home/usuarios}" th:method="post" th:object="${empleado}">
-                            <label class="w-100">Id</label>
-                            <input th:field="*{idEmpleado}" type="number" class="w-100" placeholder="Numero de identificación">
-                            <label class="w-100">Nombre</label>
-                            <input th:field="*{nombrEmpleado}" type="text" class="w-100" placeholder="Nombre">
-                            <label class="w-100">Correo</label>
-                            <input th:field="*{correoEmpleado}" type="email" class="w-100" placeholder="Correo electronico">
-                            <label class="w-100">Rol</label>
-                            <input th:field="*{rolEmpleado}" type="text" class="w-100" placeholder="Rol">
-                            <label class="w-100">Empresa</label>
-                            <input th:field="*{empresa.nit}" type="number" class="w-100" placeholder="Nit empresa"><br><br>
-                            <button type="submit" class="btn btn-secondary">Actualizar Usuario</button>
-                        </form>
-                    </section>
+                <div class="col-sm-9 d-block w-50 mx-5" th:switch="${empleadoLogin.rolEmpleado.getDisplayValue()}">
+                    <div th:case="Admin">
+                        <p><h4>Sistema de gestión de ingresos y gastos</h4></p>
+                        <h5 class="float-end"><u>Usuarios</u></h5><br><br><br><br>
+                        <section class="d-flex flex-wrap justify-content-center align-items-center">
+                            <h3 class="w-100 justify-content-center align.align-items-center"><b>Actualizar Usuario</b></h3>
+                            <form th:action="@{/home/usuarios}" th:method="post" th:object="${empleado}">
+                                <label class="w-100">Id</label>
+                                <input th:field="*{idEmpleado}" type="number" class="w-100" placeholder="Numero de identificación">
+                                <label class="w-100">Nombre</label>
+                                <input th:field="*{nombrEmpleado}" type="text" class="w-100" placeholder="Nombre">
+                                <label class="w-100">Correo</label>
+                                <input th:field="*{correoEmpleado}" type="email" class="w-100" placeholder="Correo electronico">
+                                <label class="w-100">Rol</label>
+                                <input th:field="*{rolEmpleado}" type="text" class="w-100" placeholder="Rol">
+                                <label class="w-100">Empresa</label>
+                                <input th:field="*{empresa.nit}" type="number" class="w-100" placeholder="Nit empresa"><br><br>
+                                <div>
+                                    <button type="submit" class="btn btn-secondary">Actualizar Usuario</button>
+                                    <a href="/home/usuarios" type="button" class="btn btn-secondary float-end">Cancelar</a>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                    <div class="shadow-lg p-3 mb-3 mt-3 bg-body rounded" th:case="Operario">Usuario sin permisos de actualizacion</div>
+                    <div th:case="Default" class="shadow-lg p-3 mb-5 mt-3 bg-body rounded">Usuario no Autorizado</div>
                 </div>
             </div>
         </div>
