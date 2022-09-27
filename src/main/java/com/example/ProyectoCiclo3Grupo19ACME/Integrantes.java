@@ -90,4 +90,5 @@ public class Integrantes {
     //Desarrollo del Sprint #4 para el sprint 3 de mision TIC 2022
     //La evidencia del desarrollo del sprint 3 se puede ver en la ruta del programa desplegado en linea:
     //https://proyecto-ciclo-3-grupo-acme.herokuapp.com
+    //y a travez del video en youtube: https://www.youtube.com/watch?v=0wG9X7-3qV4&ab_channel=juansis99
 }
